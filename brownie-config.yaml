@@ -1,0 +1,33 @@
+dependencies:
+  - smartcontractkit/chainlink-brownie-contracts@0.3.0
+  - OpenZeppelin/openzeppelin-contracts@4.4.2
+
+compiler:
+  solc:
+    remappings:
+     - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.3.0'
+     - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.4.2'
+
+networks:
+  default: development
+  rinkeby:
+    vrf_coordinator: "0x271682DEB8C4E0901D1a1550aD2e64D568E69909"
+    eth_usd_price_feed: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
+    link_token: "0x01BE23585060835E02B77ef475b0Cc51aA1e0709"
+    key_hash: "0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc"
+    fee: 250000000000000000
+    verify: True
+  ropsten:
+    eth_usd_price_feed: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
+    verify: True
+  mainnet-fork:
+    eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    verify: False
+  development:
+    keyhash: "0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc" # rinkeby one
+    fee: 250000000000000000
+  ganache-local:
+    verify: False
+
+wallets:
+  from_key: ${PRIVATE_KEY}
